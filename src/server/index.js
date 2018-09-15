@@ -21,7 +21,7 @@ app.get("*", (req, res, next) => {
 		<!DOCTYPE html>
 		<html>
 			<head>
-				<title>SlugWorks</title>
+				<title>SomeSlug</title>
 				<script src="/bundle.js" defer></script>
 			</head>
 

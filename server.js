@@ -106,7 +106,7 @@ app.use(_express2.default.static("public"));
 app.get("*", function (req, res, next) {
 	var markup = (0, _server.renderToString)(_react2.default.createElement(_App2.default, null));
 
-	res.send("\n\t\t<!DOCTYPE html>\n\t\t<html>\n\t\t\t<head>\n\t\t\t\t<title>SlugWorks</title>\n\t\t\t\t<script src=\"/bundle.js\" defer></script>\n\t\t\t</head>\n\n\t\t\t<body>\n\t\t\t\t<div id=\"app\">" + markup + "</div>\n\t\t\t</body>\n\t\t</html>\n\t");
+	res.send("\n\t\t<!DOCTYPE html>\n\t\t<html>\n\t\t\t<head>\n\t\t\t\t<title>SomeSlug</title>\n\t\t\t\t<script src=\"/bundle.js\" defer></script>\n\t\t\t</head>\n\n\t\t\t<body>\n\t\t\t\t<div id=\"app\">" + markup + "</div>\n\t\t\t</body>\n\t\t</html>\n\t");
 });
 
 app.listen(3000, function () {
