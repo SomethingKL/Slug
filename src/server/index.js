@@ -2,6 +2,7 @@ import React from "react"
 import express from "express"
 import cors from "cors"
 import { renderToString } from "react-dom/server"
+import serialize from "serialize-javascript"
 import App from "../pages/App"
 
 
@@ -13,8 +14,9 @@ app.use(cors())
 app.use(express.static("public"))
 
 app.get("*", (req, res, next) => {
+	const data = 'Just keep swimming...'
 	const markup = renderToString(
-		<App />
+		<App data={data}/>
 	)
 
 	res.send(`
@@ -23,6 +25,9 @@ app.get("*", (req, res, next) => {
 			<head>
 				<title>SomeSlug</title>
 				<script src="/bundle.js" defer></script>
+				<script>
+					window.__INITIAL_DATA__ = ${serialize(data)}
+				</script>
 			</head>
 
 			<body>

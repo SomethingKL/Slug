@@ -4,7 +4,7 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				Keep on swimming...
+				server msg: {this.props.data}
 			</div>
 		)
 	}
