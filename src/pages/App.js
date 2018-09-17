@@ -8,6 +8,13 @@ class App extends Component {
 		return (
 			<div>
 				<Switch>
+					{redirects.map(({from, to}) =>(
+						<Redirect
+							key={from}
+							exact from={from}
+							to={to}
+						/>
+					))}
 					{routes.map(({ path, exact, component: Page, ...rest }) => (
 						<Route
 							key={path}
