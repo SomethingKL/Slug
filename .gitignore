@@ -1,8 +1,8 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # babel
-/public/bundle.js
-/server.js
+bundle.js
+server.js
 
 # dependencies
 /node_modules
