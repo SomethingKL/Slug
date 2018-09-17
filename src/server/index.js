@@ -21,30 +21,34 @@ app.get("*", (req, res, next) => {
 		(route) => matchPath(req.url, route)
 	) || {}
 
-	const data = 'Just keep coding...'
-	const context = {data}
-	const markup = renderToString(
-		<StaticRouter location={req.url} context={context}>
-			<App />
-		</StaticRouter>
-	)
+	const promise = (activeRoute.pass) ?
+		activeRoute.pass(req.path) : Promise.resolve()
 
-	res.send(`
-		<!DOCTYPE html>
-		<html>
-			<head>
-				<title>SomeSlug</title>
-				<script src="/bundle.js" defer></script>
-				<script>
-					window.__INITIAL_STATE__ = ${serialize(data)}
-				</script>
-			</head>
+	promise.then((data) => {
+		const context = {data}
+		const markup = renderToString(
+			<StaticRouter location={req.url} context={context}>
+				<App />
+			</StaticRouter>
+		)
 
-			<body>
-				<div id="app">${markup}</div>
-			</body>
-		</html>
-	`)
+		res.send(`
+			<!DOCTYPE html>
+			<html>
+				<head>
+					<title>SomeSlug</title>
+					<script src="/bundle.js" defer></script>
+					<script>
+						window.__INITIAL_STATE__ = ${serialize(data)}
+					</script>
+				</head>
+
+				<body>
+					<div id="app">${markup}</div>
+				</body>
+			</html>
+		`)
+	}).catch(next)
 })
 
 app.listen(PORT, () => {

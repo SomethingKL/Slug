@@ -5,10 +5,10 @@ import Missing from "./pages/Missing"
 
 class App extends Component {
 	render() {
-		return (
+		return(
 			<div>
 				<Switch>
-					{redirects.map(({from, to}) =>(
+					{redirects.map(({from, to}) => (
 						<Redirect
 							key={from}
 							exact from={from}

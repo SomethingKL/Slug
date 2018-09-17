@@ -5,12 +5,18 @@ const routes = [
 	{
 		path: "/home",
 		exact: true,
-		component: Home
+		component: Home,
+		pass: () => new Promise(function(resolve, reject) {
+			resolve("This is the Home page!")
+		})
 	},
 	{
 		path: "/projects",
 		exact: true,
-		component: Projects
+		component: Projects,
+		pass: () => new Promise(function(resolve, reject) {
+			resolve("This is the Projects page!")
+		})
 	}
 ]
 

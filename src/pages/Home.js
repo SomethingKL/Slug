@@ -10,10 +10,10 @@ class Home extends Component {
 		this.pass = { data }
 	}
 	render() {
-		const {data} = this.pass
-		return (
+		const { data } = this.pass
+		return(
 			<div>
-				This is the Home page! {data}
+				{data} Feel free to look around.
 			</div>
 		)
 	}

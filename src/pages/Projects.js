@@ -11,9 +11,9 @@ class Projects extends Component {
 	}
 	render() {
 		const {data} = this.pass
-		return (
+		return(
 			<div>
-				This is the Projects page! {data}
+				{data} Feel free to look around.
 			</div>
 		)
 	}
