@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Switch, Redirect, Route } from "react-router-dom"
 import { routes, redirects } from "./routes"
-import Missing from "./Missing"
+import Missing from "./pages/Missing"
 
 class App extends Component {
 	render() {

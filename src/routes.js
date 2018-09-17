@@ -1,5 +1,5 @@
-import Home from "./Home"
-import Projects from "./Projects"
+import Home from "./pages/Home"
+import Projects from "./pages/Projects"
 
 const routes = [
 	{
