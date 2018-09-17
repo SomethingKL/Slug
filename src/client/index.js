@@ -1,8 +1,11 @@
 import React from "react"
 import { hydrate } from "react-dom"
+import { BrowserRouter } from "react-router-dom"
 import App from "../pages/App"
 
 hydrate(
-	<App data={window.__INITIAL_DATA__}/>,
+	<BrowserRouter>
+		<App />
+	</BrowserRouter>,
 	document.getElementById('app')
 );

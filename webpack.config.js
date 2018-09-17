@@ -3,10 +3,10 @@ var webpack = require('webpack')
 var nodeExternals = require('webpack-node-externals')
 
 var clientConfig = {
-	entry: './src/client/index.js',
+	entry: "./src/client/index.js",
 	output: {
 		path: path.resolve(__dirname, 'public'),
-		filename: 'bundle.js',
+		filename: "bundle.js",
 		publicPath: '/'
 	},
 	module: {
@@ -28,12 +28,12 @@ var clientConfig = {
 }
 
 var serverConfig = {
-	entry: './src/server/index.js',
+	entry: "./src/server/index.js",
 	target: 'node',
 	externals: [ nodeExternals() ],
 	output: {
 		path: __dirname,
-		filename: 'server.js',
+		filename: "server.js",
 		publicPath: '/'
 	},
 	module: {

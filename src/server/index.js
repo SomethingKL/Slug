@@ -1,9 +1,11 @@
 import React from "react"
 import express from "express"
 import cors from "cors"
-import { renderToString } from "react-dom/server"
 import serialize from "serialize-javascript"
+import { renderToString } from "react-dom/server"
+import { StaticRouter, matchPath } from "react-router-dom"
 import App from "../pages/App"
+import routes from "../pages/routes"
 
 
 const app = express()
@@ -15,9 +17,16 @@ app.use(cors())
 app.use(express.static("public"))
 
 app.get("*", (req, res, next) => {
+	const activeRoute = routes.find(
+		(route) => matchPath(req.url, route)
+	) || {}
+
 	const data = 'Just keep coding...'
+	const context = {data}
 	const markup = renderToString(
-		<App data={data}/>
+		<StaticRouter location={req.url} context={context}>
+			<App />
+		</StaticRouter>
 	)
 
 	res.send(`
@@ -27,7 +36,7 @@ app.get("*", (req, res, next) => {
 				<title>SomeSlug</title>
 				<script src="/bundle.js" defer></script>
 				<script>
-					window.__INITIAL_DATA__ = ${serialize(data)}
+					window.__INITIAL_STATE__ = ${serialize(data)}
 				</script>
 			</head>
 
