@@ -7,6 +7,7 @@ import App from "../pages/App"
 
 
 const app = express()
+const PORT = process.env.PORT || 3000;
 
 app.use(cors())
 
@@ -14,7 +15,7 @@ app.use(cors())
 app.use(express.static("public"))
 
 app.get("*", (req, res, next) => {
-	const data = 'Just keep swimming...'
+	const data = 'Just keep coding...'
 	const markup = renderToString(
 		<App data={data}/>
 	)
@@ -37,6 +38,6 @@ app.get("*", (req, res, next) => {
 	`)
 })
 
-app.listen(3000, () => {
-	console.log("Server is listening on port: 3000")
+app.listen(PORT, () => {
+	console.log(`Server is listening on port: ${PORT}`)
 })
