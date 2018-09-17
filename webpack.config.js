@@ -1,13 +1,13 @@
-var path = require('path')
-var webpack = require('webpack')
-var nodeExternals = require('webpack-node-externals')
+var path = require("path")
+var webpack = require("webpack")
+var nodeExternals = require("webpack-node-externals")
 
 var clientConfig = {
 	entry: "./src/client/index.js",
 	output: {
-		path: path.resolve(__dirname, 'public'),
+		path: path.resolve(__dirname, "public"),
 		filename: "bundle.js",
-		publicPath: '/'
+		publicPath: "/"
 	},
 	module: {
 		rules: [
@@ -15,7 +15,7 @@ var clientConfig = {
 				test: /\.(js)$/,
 				exclude: /(node_modules)/,
 				use: {
-					loader: 'babel-loader'
+					loader: "babel-loader"
 				}
 			}
 		]
@@ -29,12 +29,12 @@ var clientConfig = {
 
 var serverConfig = {
 	entry: "./src/server/index.js",
-	target: 'node',
+	target: "node",
 	externals: [ nodeExternals() ],
 	output: {
 		path: __dirname,
 		filename: "server.js",
-		publicPath: '/'
+		publicPath: "/"
 	},
 	module: {
 		rules: [
@@ -42,7 +42,7 @@ var serverConfig = {
 				test: /\.(js)$/,
 				exclude: /(node_modules)/,
 				use: {
-					loader: 'babel-loader'
+					loader: "babel-loader"
 				}
 			}
 		]

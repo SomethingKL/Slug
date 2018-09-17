@@ -1,6 +1,6 @@
 import React, { Component } from "react"
-import { Switch, Route } from "react-router-dom"
-import routes from "./routes"
+import { Switch, Redirect, Route } from "react-router-dom"
+import { routes, redirects } from "./routes"
 import Missing from "./Missing"
 
 class App extends Component {
@@ -8,19 +8,24 @@ class App extends Component {
 		return (
 			<div>
 				<Switch>
-				{
-					routes.map(({ path, exact, component: C, ...rest }) => (
+					{redirects.map(({from, to}) =>(
+						<Redirect
+							key={from}
+							exact from={from}
+							to={to}
+						/>
+					))}
+					{routes.map(({ path, exact, component: Page, ...rest }) => (
 						<Route
 							key={path}
 							path={path}
 							exact={exact}
 							render={(props) => (
-								<C {...props} {...rest}/>
+								<Page {...props} {...rest}/>
 							)}
 						/>
-					))
-				}
-				<Route render={ (props) => <Missing {...props}/> } />
+					))}
+					<Route render={ (props) => <Missing {...props}/> } />
 				</Switch>
 			</div>
 		)

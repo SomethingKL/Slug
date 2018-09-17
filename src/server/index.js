@@ -5,7 +5,7 @@ import serialize from "serialize-javascript"
 import { renderToString } from "react-dom/server"
 import { StaticRouter, matchPath } from "react-router-dom"
 import App from "../pages/App"
-import routes from "../pages/routes"
+import { routes } from "../pages/routes"
 
 
 const app = express()

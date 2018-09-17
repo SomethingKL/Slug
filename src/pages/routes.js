@@ -3,15 +3,22 @@ import Projects from "./Projects"
 
 const routes = [
 	{
-		path: '/',
+		path: "/home",
 		exact: true,
 		component: Home
 	},
 	{
-		path: '/projects',
+		path: "/projects",
 		exact: true,
 		component: Projects
 	}
 ]
 
-export default routes
+const redirects = [
+	{
+		from: "/",
+		to: "/home"
+	}
+]
+
+export { routes, redirects }
