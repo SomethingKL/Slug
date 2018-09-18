@@ -8,4 +8,4 @@ hydrate(
 		<App />
 	</BrowserRouter>,
 	document.getElementById("app")
-);
+)

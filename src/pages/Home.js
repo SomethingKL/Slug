@@ -1,14 +1,7 @@
-import React, { Component } from "react"
+import React from "react"
+import Page from "../Page"
 
-class Home extends Component {
-	constructor(props) {
-		super(props)
-
-		let data = (__isClient__) ? 
-			window.__INITIAL_STATE__ : props.staticContext.data
-
-		this.pass = { data }
-	}
+class Home extends Page {
 	render() {
 		const { data } = this.pass
 		return(
