@@ -3,7 +3,7 @@ import Projects from "./pages/Projects"
 
 const routes = [
 	{
-		path: "/home",
+		path: "/",
 		exact: true,
 		component: Home,
 		pass: () => new Promise(function(resolve, reject) {
@@ -22,8 +22,8 @@ const routes = [
 
 const redirects = [
 	{
-		from: "/",
-		to: "/home"
+		from: "/home",
+		to: "/"
 	}
 ]
 

@@ -12,10 +12,7 @@ class App extends Component {
 						<Redirect
 							key={from}
 							exact from={from}
-							to={{
-								pathname: to,
-								redirected: true
-							}}
+							to={to}
 						/>
 					))}
 					{routes.map(({ path, exact, component: Page, ...rest }) => (
