@@ -3,6 +3,7 @@ const webpack = require("webpack")
 const nodeExternals = require("webpack-node-externals")
 
 const clientConfig = {
+	mode: "production",
 	entry: "./src/client/index.js",
 	output: {
 		path: path.resolve(__dirname, "public"),
@@ -28,6 +29,7 @@ const clientConfig = {
 }
 
 const serverConfig = {
+	mode: "production",
 	entry: "./src/server/index.js",
 	target: "node",
 	externals: [ nodeExternals() ],
