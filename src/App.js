@@ -8,24 +8,24 @@ class App extends Component {
 		return(
 			<div>
 				<Switch>
-					{redirects.map(({from, to}) => (
+					{redirects.map(({ from, to }) => (
 						<Redirect
 							key={from}
 							exact from={from}
 							to={to}
 						/>
 					))}
-					{routes.map(({ path, exact, component: Page, ...rest }) => (
+					{routes.map(({ path, exact, component: Content, ...rest }) => (
 						<Route
 							key={path}
 							path={path}
 							exact={exact}
 							render={(props) => (
-								<Page {...props} {...rest}/>
+								<Content {...props} {...rest}/>
 							)}
 						/>
 					))}
-					<Route render={ (props) => <Missing {...props}/> } />
+					<Route render={(props) => <Missing {...props}/>} />
 				</Switch>
 			</div>
 		)

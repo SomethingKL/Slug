@@ -6,6 +6,7 @@ import { renderToString } from "react-dom/server"
 import { StaticRouter, matchPath } from "react-router-dom"
 import { routes } from "../routes"
 import App from "../App"
+import { Helmet } from "react-helmet"
 
 const app = express()
 const PORT = process.env.PORT || 3000;
@@ -31,12 +32,15 @@ app.get("*", (req, res, next) => {
 			</StaticRouter>
 		)
 
+		const helmet = Helmet.renderStatic()
+
 		res.send(`
 			<!DOCTYPE html>
 			<html>
 				<head>
-					<title>SomeSlug</title>
-					<script src="/bundle.js" defer></script>
+					${helmet.meta.toString()}
+					${helmet.title.toString()}
+					<script src="bundle.js" defer></script>
 					<script>
 						window.__INITIAL_STATE__ = ${serialize(data)}
 					</script>
