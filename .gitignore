@@ -1,8 +1,8 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
-# babel
-bundle.js
+# files
 server.js
+package-lock.json
 
 # dependencies
 /node_modules
@@ -12,6 +12,7 @@ server.js
 
 # production
 /build
+/public
 
 # misc
 .DS_Store
