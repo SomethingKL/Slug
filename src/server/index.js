@@ -1,15 +1,15 @@
 import React from "react"
 import express from "express"
 import cors from "cors"
-import serialize from "serialize-javascript"
 import { renderToString } from "react-dom/server"
 import { StaticRouter, matchPath } from "react-router-dom"
 import { routes } from "../routes"
 import App from "../App"
 import { Helmet } from "react-helmet"
+import MarkUp from "./markup"
 
 const app = express()
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 80;
 
 app.use(cors())
 
@@ -34,23 +34,12 @@ app.get("*", (req, res, next) => {
 
 		const helmet = Helmet.renderStatic()
 
-		res.send(`
-			<!DOCTYPE html>
-			<html>
-				<head>
-					${helmet.meta.toString()}
-					${helmet.title.toString()}
-					<script src="bundle.js" defer></script>
-					<script>
-						window.__INITIAL_STATE__ = ${serialize(data)}
-					</script>
-				</head>
-
-				<body>
-					<div id="app">${markup}</div>
-				</body>
-			</html>
-		`)
+		res.status(200).send(MarkUp({
+			helmMeta: helmet.meta.toString(),
+			helmTitle: helmet.title.toString(),
+			pagePass: data,
+			pageMarkup: markup
+		}))
 	}).catch(next)
 })
 

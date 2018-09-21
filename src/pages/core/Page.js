@@ -5,7 +5,7 @@ class Page extends Component {
 		super(props)
 
 		const data = (__isClient__) ?
-			window.__INITIAL_STATE__ : props.staticContext.data
+			window.__INITIAL_DATA__ : props.staticContext.data
 
 		this.pass = { data }
 	}
