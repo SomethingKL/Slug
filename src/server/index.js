@@ -35,10 +35,9 @@ app.get("*", (req, res, next) => {
 		const helmet = Helmet.renderStatic()
 
 		res.status(200).send(MarkUp({
-			helmMeta: helmet.meta.toString(),
-			helmTitle: helmet.title.toString(),
-			pagePass: data,
-			pageMarkup: markup
+			helmet: helmet,
+			pass: data,
+			markup: markup
 		}))
 	}).catch(next)
 })

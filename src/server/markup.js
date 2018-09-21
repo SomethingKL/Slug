@@ -1,21 +1,22 @@
 import React, { Component } from "react"
 import serialize from "serialize-javascript"
 
-const MarkUp = ({ helmMeta, helmTitle, pagePass, pageMarkup }) => {
+const MarkUp = ({ helmet, pass, markup }) => {
 	return(`
 		<!DOCTYPE html>
-		<html>
+		<html ${helmet.htmlAttributes.toString()}>
 			<head>
-				${helmMeta}
-				${helmTitle}
+				${helmet.meta.toString()}
+				${helmet.title.toString()}
+				${helmet.link.toString()}
 				<script src="bundle.js" defer></script>
 				<script>
-					window.__INITIAL_DATA__ = ${serialize(pagePass)}
+					window.__INITIAL_DATA__ = ${serialize(pass)}
 				</script>
 			</head>
 
-			<body>
-				<div id="root">${pageMarkup}</div>
+			<body ${helmet.bodyAttributes.toString()}>
+				<div id="root">${markup}</div>
 			</body>
 		</html>
 	`)
