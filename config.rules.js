@@ -1,6 +1,6 @@
 const rules = ({ loadJS, loadSCSS }) => [
 	{ 
-		test: /\.(js|jsx)$/,
+		test: /\.(js)$/,
 		exclude: /(node_modules)/,
 		use: {
 			loader: loadJS

@@ -16,7 +16,9 @@ const MarkUp = ({ helmet, pass, markup }) => {
 			</head>
 
 			<body ${helmet.bodyAttributes.toString()}>
-				<div id="root">${markup}</div>
+				<div id="root">
+					${markup}
+				</div>
 			</body>
 		</html>
 	`)

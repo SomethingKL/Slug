@@ -1,18 +1,16 @@
-import React from "react"
-import Page from "./core/Page"
+import React, { Component } from "react"
 import { Helmet } from "react-helmet"
-import style from "./scss/notfound.scss"
+import styles from "./scss/notfound.scss"
 
-class NotFound extends Page {
+class NotFound extends Component {
 	render() {
-		const { data } = this.pass
 		return(
-			<div className={style.component}>
+			<div className={styles.component}>
 				<Helmet
 					title="404"
 				/>
-
-				Sorry there is no page here.
+				
+				There is no page here
 			</div>
 		)
 	}

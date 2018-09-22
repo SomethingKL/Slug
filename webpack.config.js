@@ -1,7 +1,7 @@
 const path = require("path")
 const webpack = require("webpack")
 const nodeExternals = require("webpack-node-externals")
-const loadRules = require("./config.rules.js")
+const loadRules = require("./config.rules")
 
 const clientConfig = {
 	mode: "production",
