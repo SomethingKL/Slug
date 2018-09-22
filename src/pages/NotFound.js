@@ -1,15 +1,16 @@
 import React from "react"
 import Page from "./core/Page"
 import { Helmet } from "react-helmet"
+import style from "./scss/notfound.scss"
 
-class Missing extends Page {
+class NotFound extends Page {
 	render() {
 		const { data } = this.pass
 		return(
-			<div>
-				<Helmet>
-					<title>404</title>
-				</Helmet>
+			<div className={style.component}>
+				<Helmet
+					title="404"
+				/>
 
 				Sorry there is no page here.
 			</div>
@@ -17,4 +18,4 @@ class Missing extends Page {
 	}
 }
 
-export default Missing
+export default NotFound

@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { Switch, Redirect, Route } from "react-router-dom"
 import { routes, redirects } from "./routes"
 import Dash from "./pages/core/Dash"
-import Missing from "./pages/Missing"
+import NotFound from "./pages/NotFound"
 
 class App extends Component {
 	render() {
@@ -22,12 +22,16 @@ class App extends Component {
 						exact={exact}
 						render={(props) => (
 							<Dash>
-								<Content {...props} {...rest}/>
+								<Content {...props} {...rest} />
 							</Dash>
 						)}
 					/>
 				))}
-				<Route render={(props) => <Missing {...props}/>} />
+				<Route render={(props) => (
+					<Dash>
+						<NotFound {...props} />
+					</Dash>
+				)} />
 			</Switch>
 		)
 	}

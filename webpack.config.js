@@ -1,6 +1,7 @@
 const path = require("path")
 const webpack = require("webpack")
 const nodeExternals = require("webpack-node-externals")
+const loadRules = require("./config.rules.js")
 
 const clientConfig = {
 	mode: "production",
@@ -11,15 +12,10 @@ const clientConfig = {
 		publicPath: "/"
 	},
 	module: {
-		rules: [
-			{ 
-				test: /\.(js)$/,
-				exclude: /(node_modules)/,
-				use: {
-					loader: "babel-loader"
-				}
-			}
-		]
+		rules: loadRules({
+			loadJS: "babel-loader",
+			loadSCSS: "style-loader"
+		})
 	},
 	plugins: [
 		new webpack.DefinePlugin({
@@ -39,15 +35,10 @@ const serverConfig = {
 		publicPath: "/"
 	},
 	module: {
-		rules: [
-			{ 
-				test: /\.(js)$/,
-				exclude: /(node_modules)/,
-				use: {
-					loader: "babel-loader"
-				}
-			}
-		]
+		rules: loadRules({
+			loadJS: "babel-loader",
+			loadSCSS: "isomorphic-style-loader"
+		})
 	},
 	plugins: [
 		new webpack.DefinePlugin({

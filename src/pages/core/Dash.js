@@ -7,9 +7,8 @@ class Dash extends Component {
 				<h1>
 					Heading
 				</h1>
-				<section>
-					{this.props.children}
-				</section>
+				
+				{this.props.children}
 			</div>
 		)
 	}
