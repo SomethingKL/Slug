@@ -4,13 +4,13 @@ import { Helmet } from "react-helmet"
 class NotFound extends Component {
 	render() {
 		return(
-			<div>
+			<section className="notfound">
 				<Helmet
 					title="404"
 				/>
 				
 				There is no page here.
-			</div>
+			</section>
 		)
 	}
 }
