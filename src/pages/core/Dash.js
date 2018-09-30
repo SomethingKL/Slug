@@ -1,15 +1,15 @@
-import React, { Component } from "react"
+import React, { Component, Fragment } from "react"
 
 class Dash extends Component {
 	render() {
 		return(
-			<div>
+			<Fragment>
 				<h1>
 					Heading
 				</h1>
 				
 				{this.props.children}
-			</div>
+			</Fragment>
 		)
 	}
 }

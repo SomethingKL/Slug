@@ -5,7 +5,6 @@ import { renderToString } from "react-dom/server"
 import { StaticRouter, matchPath } from "react-router-dom"
 import { routes } from "../routes"
 import App from "../App"
-import { Helmet } from "react-helmet"
 import MarkUp from "./markup"
 
 const app = express()
@@ -32,10 +31,7 @@ app.get("*", (req, res, next) => {
 			</StaticRouter>
 		)
 
-		const helmet = Helmet.renderStatic()
-
 		res.status(200).send(MarkUp({
-			helmet: helmet,
 			pass: data,
 			markup: markup
 		}))

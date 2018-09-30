@@ -1,7 +1,9 @@
 import React, { Component } from "react"
+import { Helmet } from "react-helmet"
 import serialize from "serialize-javascript"
 
-const MarkUp = ({ helmet, pass, markup }) => {
+const MarkUp = ({ pass, markup }) => {
+	const helmet = Helmet.renderStatic()
 	return(`
 		<!DOCTYPE html>
 		<html ${helmet.htmlAttributes.toString()}>
@@ -13,6 +15,7 @@ const MarkUp = ({ helmet, pass, markup }) => {
 				<script>
 					window.__INITIAL_DATA__ = ${serialize(pass)}
 				</script>
+				<link href="styles.css" rel="stylesheet" type="text/css" />
 			</head>
 
 			<body ${helmet.bodyAttributes.toString()}>

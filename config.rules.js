@@ -1,31 +1,38 @@
-const rules = ({ loadJS, loadSCSS }) => [
-	{ 
+require("./src/helpers/_strings")
+
+function jsRules(jsLoader) {
+	return {
 		test: /\.(js)$/,
 		exclude: /(node_modules)/,
 		use: {
-			loader: loadJS
+			loader: jsLoader
 		}
-	},
-	{
+	}
+}
+function scssRules(scssLoader) {
+	return {
 		test: /\.(scss)$/,
 		use: [
-			{
-				loader: loadSCSS
-			},
-			{
-				loader: "css-loader",
-				options: {
-					modules: true,
-					importLoaders: 1,
-					localIdentName: "[name]_[local]_[hash:base64:5]",
-					sourceMap: true
-				}
-			},
-			{
-				loader: "sass-loader"
-			}
+			scssLoader,
+			"css-loader",
+			"sass-loader"
 		]
 	}
-]
+}
 
-module.exports = rules
+const configRules = ({
+	caller = "client",
+	jsLoader = "babel-loader",
+	styleLoader = "style-loader"
+}) => {
+	console.log(
+		"{0}:\n    {1:7}loader:  {2}\n    {3:7}loader:  {4}".fmt(
+		caller, ".js", jsLoader, ".scss", styleLoader
+	))
+	return (caller == "server") ? [
+		jsRules(jsLoader),
+		scssRules(styleLoader)
+	] : [ jsRules(jsLoader) ]
+}
+
+module.exports = configRules

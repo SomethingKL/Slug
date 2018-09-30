@@ -1,16 +1,15 @@
 import React, { Component } from "react"
 import { Helmet } from "react-helmet"
-import styles from "./scss/notfound.scss"
 
 class NotFound extends Component {
 	render() {
 		return(
-			<div className={styles.component}>
+			<div>
 				<Helmet
 					title="404"
 				/>
 				
-				There is no page here
+				There is no page here.
 			</div>
 		)
 	}
