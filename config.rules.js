@@ -25,14 +25,19 @@ const configRules = ({
 	jsLoader = "babel-loader",
 	styleLoader = "style-loader"
 }) => {
-	console.log(
-		"{0}:\n    {1:7}loader:  {2}\n    {3:7}loader:  {4}".fmt(
-		caller, ".js", jsLoader, ".scss", styleLoader
-	))
-	return (caller == "server") ? [
-		jsRules(jsLoader),
-		scssRules(styleLoader)
-	] : [ jsRules(jsLoader) ]
+	if(caller == "server") {
+		console.log(
+			"{0}:\n    {1:7}loader:  {2}\n    {3:7}loader:  {4}".fmt(
+			caller, ".js", jsLoader, ".scss", styleLoader
+		))
+		return [ jsRules(jsLoader), scssRules(styleLoader) ]
+	} else {
+		console.log(
+			"{0}:\n    {1:7}loader:  {2}".fmt(
+			caller, ".js", jsLoader
+		))
+		return [ jsRules(jsLoader) ]
+	}
 }
 
 module.exports = configRules
