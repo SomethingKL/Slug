@@ -13,12 +13,12 @@
 		"dev:webpack": "webpack --watch",
 		"dev:server": "nodemon server.js",
 		"dev": "npm-run-all --parallel dev:*",
-		"install:webpack": "npm install webpack@4.17.2 webpack-cli@3.1.0 webpack-node-externals@1.7.2",
-		"install:react": "npm install react@16.4.2 react-dom@16.4.2 react-helmet@5.2.0 react-router-dom@4.3.1",
-		"install:babel": "npm install babel-loader@8.0.2 @babel/core@7.0.0 @babel/preset-env@7.0.0 @babel/preset-react@7.0.0",
-		"install:server": "npm install cors@2.8.4 express@4.16.3 nodemon@1.18.3 serialize-javascript@1.5.0",
-		"install:styles": "npm install sass-loader@7.1.0 css-loader@1.0.0 style-loader@0.23.0 mini-css-extract-plugin@0.4.3",
-		"add-all-packages": "npm-run-all install:*"
+		"add:webpack": "npm install webpack@4.17.2 webpack-cli@3.1.0 webpack-node-externals@1.7.2",
+		"add:react": "npm install react@16.4.2 react-dom@16.4.2 react-helmet@5.2.0 react-router-dom@4.3.1",
+		"add:babel": "npm install babel-loader@8.0.2 @babel/core@7.0.0 @babel/preset-env@7.0.0 @babel/preset-react@7.0.0",
+		"add:server": "npm install cors@2.8.4 express@4.16.3 nodemon@1.18.3 serialize-javascript@1.5.0",
+		"add:styles": "npm install sass-loader@7.1.0 css-loader@1.0.0 style-loader@0.23.0 mini-css-extract-plugin@0.4.3",
+		"add-all-packages": "npm-run-all add:*"
 	},
 	"babel": {
 		"presets": [
