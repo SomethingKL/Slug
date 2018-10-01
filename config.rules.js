@@ -27,13 +27,13 @@ const configRules = ({
 }) => {
 	if(caller == "server") {
 		console.log(
-			"{0}:\n    {1:7}loader:  {2}\n    {3:7}loader:  {4}".fmt(
+			"{0}:\n    {yw~1:7}loader:  {2}\n    {yw~3:7}loader:  {4}".fmt(
 			caller, ".js", jsLoader, ".scss", styleLoader
 		))
 		return [ jsRules(jsLoader), scssRules(styleLoader) ]
 	} else {
 		console.log(
-			"{0}:\n    {1:7}loader:  {2}".fmt(
+			"{0}:\n    {yw~1:7}loader:  {2}".fmt(
 			caller, ".js", jsLoader
 		))
 		return [ jsRules(jsLoader) ]
