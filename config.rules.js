@@ -1,6 +1,6 @@
 require("./src/helpers/_strings")
 
-function jsRules(jsLoader) {
+const jsRules = (jsLoader) => {
 	return {
 		test: /\.(js)$/,
 		exclude: /(node_modules)/,
@@ -9,7 +9,7 @@ function jsRules(jsLoader) {
 		}
 	}
 }
-function scssRules(scssLoader) {
+const scssRules = (scssLoader) => {
 	return {
 		test: /\.(scss)$/,
 		use: [

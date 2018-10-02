@@ -1,10 +1,10 @@
 String.prototype.fmt = function() {
 	// \x1b = \033 = escape
-	const escape = "\x1b["
+	const esc = (str) => { return "\x1b[" + str + "m" }
 	const ANSI = {
-		'rt': escape + "0m", // reset
-		'bt': escape + "1m", // bright
-		'un': escape + "4m", // underline
+		'rt': esc("0"), // reset
+		'bt': esc("1"), // bright
+		'un': esc("4"), // underline
 		'up': "\x1b[A\x1b[2K\r" // up and delete previous line
 	}
 	// \1b[38;2;r;g;bm
@@ -32,8 +32,7 @@ String.prototype.fmt = function() {
 
 		return (foreColor[key] === undefined) ?
 			exact :
-			escape + foreColor[key] + 'm' + str + ANSI['rt']
-			
+			esc(foreColor[key]) + str + ANSI['rt']
 	}
 	const fixSize = (str, num, rghtJstfy = false) => {
 		if(str.length == num)
@@ -41,8 +40,8 @@ String.prototype.fmt = function() {
 
 		if(str.length < num)
 			return (rghtJstfy) ?
-				' '.repeat(num-str.length) + str :
-				str + ' '.repeat(num-str.length)
+				" ".repeat(num-str.length) + str :
+				str + " ".repeat(num-str.length)
 
 		return (rghtJstfy) ?
 			str.slice(-num) :
@@ -65,8 +64,8 @@ String.prototype.fmt = function() {
 				return exact
 			
 			const str = (rghtJstfy === undefined) ?
-				fixSize(arguments[i], mrgn) :
-				fixSize(arguments[i], mrgn, true)
+				fixSize(arguments[i].toString(), mrgn) :
+				fixSize(arguments[i].toString(), mrgn, true)
 			
 			return (style === undefined) ?
 				str :
