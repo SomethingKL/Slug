@@ -31,12 +31,6 @@ const configRules = ({
 			"{0}:\n    {yw~1:7}loader:  {2}\n    {yw~3:7}loader:  {4}".fmt(
 			caller, ".js", jsLoader, ".scss", styleLoader
 		))
-		function printAdd(num) { return "number given: "+num}
-		let ffff = memoize(printAdd)
-		let n = 0
-		while(n++ < 6){
-			console.log("{cy~0}".fmt(ffff(Math.floor(Math.random()*3)+1)))
-		}
 		return [ jsRules(jsLoader), scssRules(styleLoader) ]
 	} else {
 		console.log(
