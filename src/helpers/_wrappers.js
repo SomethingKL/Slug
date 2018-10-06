@@ -42,4 +42,4 @@ function generator(func, structure) {
 	return undefined
 }
 
-module.exports = memoize
+module.exports = generator

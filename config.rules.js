@@ -1,5 +1,4 @@
 require("./src/helpers/_strings")
-const memoize = require("./src/helpers/_wrappers")
 
 const jsRules = (jsLoader) => {
 	return {
