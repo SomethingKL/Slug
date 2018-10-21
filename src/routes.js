@@ -1,5 +1,6 @@
 import Home from "./pages/Home"
 import Projects from "./pages/Projects"
+import initialGet from "./helpers/_init_get"
 
 const routes = [
 	{
@@ -7,7 +8,7 @@ const routes = [
 		exact: true,
 		component: Home,
 		pass: () => new Promise(function(resolve, reject) {
-			resolve("This is the Home page!")
+			resolve(initialGet.home())
 		})
 	},
 	{
@@ -15,7 +16,7 @@ const routes = [
 		exact: true,
 		component: Projects,
 		pass: () => new Promise(function(resolve, reject) {
-			resolve("This is the Projects page!")
+			resolve(initialGet.projects())
 		})
 	}
 ]

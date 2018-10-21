@@ -4,10 +4,14 @@ class Page extends Component {
 	constructor(props) {
 		super(props)
 
-		const data = (__isClient__) ?
-			window.__INITIAL_DATA__ : props.staticContext.data
+		let data
+		if (__isClient__){
+			data = window.__INITIAL_DATA__
+			delete window.__INITIAL_DATA__
+		} else
+			data = props.staticContext.data
 
-		this.pass = { data }
+		this.state = { data }
 	}
 }
 

@@ -4,14 +4,14 @@ import Page from "./core/Page"
 
 class Projects extends Page {
 	render() {
-		const { data } = this.pass
+		const { data } = this.state
 		return(
 			<section className="projects">
 				<Helmet
 					title="Projects"
 				/>
 
-				{data} Feel free to look around.
+				Welcome to the Projects page.{data} Feel free to look around.
 			</section>
 		)
 	}

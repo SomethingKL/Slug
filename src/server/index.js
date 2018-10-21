@@ -7,6 +7,8 @@ import { routes } from "../routes"
 import App from "../App"
 import MarkUp from "./markup"
 
+require("../helpers/_strings")
+
 const app = express()
 const PORT = process.env.PORT || 80;
 
@@ -39,5 +41,8 @@ app.get("*", (req, res, next) => {
 })
 
 app.listen(PORT, () => {
-	console.log(`Server is listening on port: ${PORT}`)
+	console.log(
+		"Server is listening on port: {yw~0}".fmt(
+		PORT
+	))
 })
