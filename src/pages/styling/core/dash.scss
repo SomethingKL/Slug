@@ -2,15 +2,26 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 25.0rem;
+	width: 16.25rem;
 	height: 100%;
 	background: #25383C;
 
+	.logo {
+		display: block;
+		margin: 1.5rem auto;
+		animation: App-logo-spin infinite 20s linear;
+		height: 7.5rem;
+	}
+
+	@keyframes App-logo-spin {
+		from { transform: rotate(0deg); }
+		to { transform: rotate(360deg); }
+	}
+
 	.group {
 		display: block;
-		font-size: 1.25rem;
 		color: #CCCCCC;
-		margin: 1.5rem 0 0;
+		margin: 2.5rem 0 0;
 		padding: 0.75rem 1.5rem;
 		background: #1C2127;
 		text-transform: uppercase;
@@ -28,7 +39,19 @@
 			font-size: 1rem;
 			color: white;
 			text-decoration: none;
-			padding: 0.75rem 1.5rem 0.75rem 3rem;
+			padding: 0.625rem 1.5rem 0.625rem 3rem;
+
+			i {
+				position: absolute;
+				height: 50%;
+				top: 30%;
+				left: 0.75rem;
+			}
+		}
+
+		&:hover {
+			filter: invert(1);
+			background: #777777;
 		}
 	}
 }

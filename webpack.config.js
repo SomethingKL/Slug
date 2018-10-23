@@ -2,6 +2,7 @@ const path = require("path")
 const webpack = require("webpack")
 const nodeExternals = require("webpack-node-externals")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const CopyWebpackPlugin = require("copy-webpack-plugin")
 const configRules = require("./config.rules")
 
 const clientConfig = {
@@ -18,13 +19,16 @@ const clientConfig = {
 	plugins: [
 		new webpack.DefinePlugin({
 			__isClient__: "true"
-		})
+		}),
+		new CopyWebpackPlugin([
+			{ from: "src/pages/assets/", to: "assets/" }
+		])
 	]
 }
 
 const serverConfig = {
 	mode: "production",
-	entry: [ "./src/server/index.js", "./src/pages/styling/styles.scss" ],
+	entry: [ "./src/server/index.js", "./src/pages/styling/core/styles.scss" ],
 	target: "node",
 	externals: [ nodeExternals() ],
 	output: {

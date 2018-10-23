@@ -10,11 +10,11 @@ const inform = (loc) => {
 const initialGet = {
 	home: () => {
 		inform("Home page")
-		return " This was your entry point to the website."
+		return "This was your entry point to the website."
 	},
 	projects: () => {
 		inform("Projects page")
-		return " This was your entry point to the website."
+		return "This was your entry point to the website."
 	}
 }
 

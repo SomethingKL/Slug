@@ -11,7 +11,7 @@ class Projects extends Page {
 					title="Projects"
 				/>
 
-				Welcome to the Projects page.{data} Feel free to look around.
+				Welcome to the Projects page. {data} Feel free to look around.
 			</section>
 		)
 	}

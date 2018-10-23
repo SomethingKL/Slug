@@ -7,32 +7,30 @@ import NotFound from "./pages/NotFound"
 class App extends Component {
 	render() {
 		return(
-			<Switch>
-				{redirects.map(({ from, to }) => (
-					<Redirect
-						key={from}
-						exact from={from}
-						to={to}
-					/>
-				))}
-				{routes.map(({ path, exact, component: Content, ...rest }) => (
-					<Route
-						key={path}
-						path={path}
-						exact={exact}
-						render={(props) => (
-							<Dash>
+			<Dash>
+				<Switch>
+					{redirects.map(({ from, to }) => (
+						<Redirect
+							key={from}
+							exact from={from}
+							to={to}
+						/>
+					))}
+					{routes.map(({ path, exact, component: Content, ...rest }) => (
+						<Route
+							key={path}
+							path={path}
+							exact={exact}
+							render={(props) => (
 								<Content {...props} {...rest} />
-							</Dash>
-						)}
-					/>
-				))}
-				<Route render={(props) => (
-					<Dash>
+							)}
+						/>
+					))}
+					<Route render={(props) => (
 						<NotFound {...props} />
-					</Dash>
-				)} />
-			</Switch>
+					)} />
+				</Switch>
+			</Dash>
 		)
 	}
 }
