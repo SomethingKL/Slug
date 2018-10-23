@@ -1,14 +1,18 @@
 .dash {
+	$dash-back-color: #111111;
+	$group-text-color: #FFFFFF;
+	$group-back-color: #444444;
+
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 16.25rem;
 	height: 100%;
-	background: #25383C;
+	background: $dash-back-color;
 
 	.logo {
 		display: block;
-		margin: 1.5rem auto;
+		margin: 1rem auto;
 		animation: App-logo-spin infinite 20s linear;
 		height: 7.5rem;
 	}
@@ -19,39 +23,42 @@
 	}
 
 	.group {
-		display: block;
-		color: #CCCCCC;
-		margin: 2.5rem 0 0;
-		padding: 0.75rem 1.5rem;
-		background: #1C2127;
-		text-transform: uppercase;
-	}
+		margin: 0 0 2.5rem;
 
-	li {
-		margin: 0;
-		padding: 0;
-		display: block;
-		list-style-type: none;
-
-		a {
-			position: relative;
+		.heading {
 			display: block;
-			font-size: 1rem;
-			color: white;
-			text-decoration: none;
-			padding: 0.625rem 1.5rem 0.625rem 3rem;
-
-			i {
-				position: absolute;
-				height: 50%;
-				top: 30%;
-				left: 0.75rem;
-			}
+			color: $group-text-color;
+			padding: 0.75rem 1.5rem;
+			background: $group-back-color;
+			text-transform: uppercase;
 		}
 
-		&:hover {
-			filter: invert(1);
-			background: #777777;
+		li {
+			margin: 0;
+			padding: 0;
+			display: block;
+			list-style-type: none;
+
+			a {
+				position: relative;
+				display: block;
+				font-size: 1rem;
+				color: $group-text-color;
+				text-decoration: none;
+				padding: 0.625rem 1.5rem 0.625rem 3rem;
+
+				i {
+					position: absolute;
+					height: 50%;
+					top: 30%;
+					left: 0.75rem;
+				}
+			}
+
+			&:hover {
+				background: $group-back-color;
+				filter: invert(1);
+			}
 		}
 	}
 }
