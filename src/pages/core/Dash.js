@@ -31,6 +31,12 @@ class Dash extends Component {
 						Documents
 					</NavLink>
 				</li>
+				<li>
+					<NavLink to="/notfound">
+						<i className="fas fa-question"></i>
+						404
+					</NavLink>
+				</li>
 			</Fragment>
 		)
 	}
