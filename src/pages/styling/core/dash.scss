@@ -3,6 +3,16 @@
 	$group-text-color: #EEEEEE;
 	$group-back-color: #444444;
 
+	$heading: (
+		display: block,
+		color: $group-text-color,
+		font-size: 1.0625rem,
+		padding: 0.75rem 1.5rem,
+		background: $group-back-color,
+		text-transform: uppercase,
+		user-select: none
+	);
+
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -27,13 +37,9 @@
 		display: block;
 
 		.sideHeading {
-			display: block;
-			color: $group-text-color;
-			font-size: 1.0625rem;
-			padding: 0.75rem 1.5rem;
-			background: $group-back-color;
-			text-transform: uppercase;
-			user-select: none;
+			@each $key, $value in $heading {
+				#{$key}: $value;
+			};
 		}
 	}
 
@@ -41,14 +47,10 @@
 		display: none;
 
 		.topHeading {
-			display: block;
+			@each $key, $value in $heading {
+				#{$key}: $value;
+			};
 			cursor: pointer;
-			color: $group-text-color;
-			font-size: 1.0625rem;
-			padding: 0.75rem 1.5rem;
-			background: $group-back-color;
-			text-transform: uppercase;
-			user-select: none;
 		}
 	}
 
