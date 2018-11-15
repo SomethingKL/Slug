@@ -11,7 +11,7 @@ class Home extends Page {
 					title="Home"
 				/>
 				
-				Welcome to the Home page. {data} Feel free to look sound.
+				Welcome to the Home page. {data} Feel free to look around.
 			</section>
 		)
 	}

@@ -2,59 +2,104 @@ import React, { Component, Fragment } from "react"
 import { NavLink } from "react-router-dom"
 
 class Dash extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			nav: false,
+			lnk: false
+		}
+	}
+	navGroup() {
+		return(
+			<Fragment>
+				<li>
+					<NavLink to="/home">
+						<i className="fas fa-home"></i>
+						Home
+					</NavLink>
+				</li>
+				<li>
+					<NavLink to="/projects">
+						<i className="fas fa-project-diagram"></i>
+						Projects
+					</NavLink>
+				</li>
+				<li>
+					<NavLink to="/notfound">
+						<i className="far fa-file-alt"></i>
+						Documents
+					</NavLink>
+				</li>
+			</Fragment>
+		)
+	}
+	toggleNav() {
+		this.setState({
+			nav: !this.state.nav,
+			lnk: false
+		})
+	}
+	lnkGroup() {
+		return(
+			<Fragment>
+				<li>
+					<a href="https://www.linkedin.com/in/ross-brandt-1082a3b6">
+						<i className="fab fa-linkedin"></i>
+						LinkedIn
+					</a>
+				</li>
+				<li>
+					<a href="https://github.com/SomethingKL">
+						<i className="fab fa-github"></i>
+						GitHub
+					</a>
+				</li>
+			</Fragment>
+		)
+	}
+	toggleLnk() {
+		this.setState({
+			nav: false,
+			lnk: !this.state.lnk
+		})
+	}
 	render() {
 		return(
 			<Fragment>
 				<aside className="dash">
 					<img src={"./assets/logo.svg"} alt="logo" className="logo" />
-					<div className="group">
-						<div className="heading">
+
+					<section className="topDash">
+						<div className="topHeading" onClick={() => this.toggleNav()}>
 							Navigation
 						</div>
 
-						<li>
-							<NavLink to="/home">
-								<i className="fas fa-home"></i>
-								Home
-							</NavLink>
-						</li>
-						<li>
-							<NavLink to="/projects">
-								<i className="fas fa-project-diagram"></i>
-								Projects
-							</NavLink>
-						</li>
-						<li>
-							<NavLink to="/notfound">
-								<i className="far fa-file-alt"></i>
-								Documents
-							</NavLink>
-						</li>
-					</div>
-					<div className="group">
-						<div className="heading">
+						<div className="topHeading" onClick={() => this.toggleLnk()}>
 							Links
 						</div>
 
-						<li>
-							<a href="https://www.linkedin.com/in/ross-brandt-1082a3b6">
-								<i className="fab fa-linkedin"></i>
-								LinkedIn
-							</a>
-						</li>
-						<li>
-							<a href="https://github.com/SomethingKL">
-								<i className="fab fa-github"></i>
-								GitHub
-							</a>
-						</li>
-					</div>
+						{this.state.nav ? this.navGroup() : null}
+						{this.state.lnk ? this.lnkGroup() : null}
+					</section>
+
+					<section className="sideDash">
+						<div className="sideHeading">
+							Navigation
+						</div>
+						{this.navGroup()}
+
+						<div className="sideHeading">
+							Links
+						</div>
+						{this.lnkGroup()}
+					</section>
 				</aside>
 				
 				{this.props.children}
 			</Fragment>
 		)
-	}
+	}//
 }
 
 export default Dash

@@ -12,7 +12,8 @@
 
 	.logo {
 		display: block;
-		margin: 1rem auto;
+		margin: auto;
+		padding: 1rem;
 		animation: App-logo-spin infinite 20s linear;
 		height: 7.5rem;
 	}
@@ -22,43 +23,85 @@
 		to { transform: rotate(360deg); }
 	}
 
-	.group {
-		margin: 0 0 2.5rem;
+	.sideDash {
+		display: block;
 
-		.heading {
+		.sideHeading {
 			display: block;
 			color: $group-text-color;
+			font-size: 1.0625rem;
 			padding: 0.75rem 1.5rem;
 			background: $group-back-color;
 			text-transform: uppercase;
+			user-select: none;
+		}
+	}
+
+	.topDash {
+		display: none;
+
+		.topHeading {
+			display: block;
+			cursor: pointer;
+			color: $group-text-color;
+			font-size: 1.0625rem;
+			padding: 0.75rem 1.5rem;
+			background: $group-back-color;
+			text-transform: uppercase;
+			user-select: none;
+		}
+	}
+
+	li {
+		margin: 0;
+		padding: 0;
+		display: block;
+		list-style-type: none;
+
+		a {
+			position: relative;
+			display: block;
+			color: $group-text-color;
+			text-decoration: none;
+			padding: 0.625rem 1.5rem 0.625rem 3rem;
+
+			i {
+				position: absolute;
+				height: 50%;
+				top: 30%;
+				left: 0.75rem;
+			}
 		}
 
-		li {
-			margin: 0;
+		&:hover {
+			background: $group-back-color;
+			filter: invert(1);
+		}
+	}
+}
+
+@media only screen and (max-width: 1024px) {
+	#root {
+		padding: 0;
+	}
+
+	.dash {
+		position: static;
+		width: 100%;
+		height: auto;
+
+		.logo {
 			padding: 0;
+			width: 3rem;
+			height: 3rem;
+		}
+
+		.sideDash {
+			display: none;
+		}
+
+		.topDash {
 			display: block;
-			list-style-type: none;
-
-			a {
-				position: relative;
-				display: block;
-				font-size: 1rem;
-				color: $group-text-color;
-				text-decoration: none;
-				padding: 0.625rem 1.5rem 0.625rem 3rem;
-
-				i {
-					position: absolute;
-					height: 50%;
-					top: 30%;
-					left: 0.75rem;
-				}
-			}
-
-			&:hover {
-				background: $group-back-color;
-				filter: invert(1);
-			}
 		}
 	}
 }
