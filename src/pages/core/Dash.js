@@ -26,7 +26,7 @@ class Dash extends Component {
 					</NavLink>
 				</li>
 				<li>
-					<NavLink to="/notfound">
+					<NavLink to="/documents">
 						<i className="far fa-file-alt"></i>
 						Documents
 					</NavLink>
@@ -99,7 +99,7 @@ class Dash extends Component {
 				{this.props.children}
 			</Fragment>
 		)
-	}//
+	}
 }
 
 export default Dash

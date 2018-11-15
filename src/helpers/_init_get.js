@@ -7,14 +7,20 @@ const inform = (loc) => {
 	))
 }
 
+const msg = "This was your entry point to the website."
+
 const initialGet = {
 	home: () => {
 		inform("Home page")
-		return "This was your entry point to the website."
+		return msg
 	},
 	projects: () => {
 		inform("Projects page")
-		return "This was your entry point to the website."
+		return msg
+	},
+	documents: () => {
+		inform("Documents page")
+		return msg
 	}
 }
 
