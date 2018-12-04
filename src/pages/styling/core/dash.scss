@@ -45,12 +45,27 @@
 
 	.topDash {
 		display: none;
+		.topBar {
+			overflow: auto;
+			
+			.topHeading {
+				@each $key, $value in $heading {
+					#{$key}: $value;
+				};
+				float: left;
+				width: 45%;
+				cursor: pointer;
 
-		.topHeading {
-			@each $key, $value in $heading {
-				#{$key}: $value;
-			};
-			cursor: pointer;
+				&:hover {
+					filter: invert(1);
+				}
+
+				&:last-child {
+					float: none;
+					width: auto;
+					overflow: auto;
+				}
+			}
 		}
 	}
 
@@ -59,13 +74,14 @@
 		padding: 0;
 		display: block;
 		list-style-type: none;
+		width: 100%;
 
 		a {
 			position: relative;
 			display: block;
 			color: $group-text-color;
 			text-decoration: none;
-			padding: 0.625rem 1.5rem 0.625rem 3rem;
+			padding: 0.625rem 1.5rem 0.625rem 3.25rem;
 
 			i {
 				position: absolute;
@@ -94,8 +110,9 @@
 
 		.logo {
 			padding: 0;
+			float: left;
 			width: 3rem;
-			height: 3rem;
+			height: 2.75rem;
 		}
 
 		.sideDash {
@@ -104,6 +121,22 @@
 
 		.topDash {
 			display: block;
+		}
+	}
+}
+
+@media only screen and (max-width: 330px) {
+	.dash {
+		.logo {
+			display: none;
+		}
+
+		.topDash {
+			.topBar{
+				.topHeading {
+					width: 100%;
+				}
+			}
 		}
 	}
 }

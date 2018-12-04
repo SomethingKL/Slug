@@ -10,6 +10,12 @@ class Dash extends Component {
 			lnk: false
 		}
 	}
+	toggleNav() {
+		this.setState({
+			nav: !this.state.nav,
+			lnk: false
+		})
+	}
 	navGroup() {
 		return(
 			<Fragment>
@@ -40,10 +46,10 @@ class Dash extends Component {
 			</Fragment>
 		)
 	}
-	toggleNav() {
+	toggleLnk() {
 		this.setState({
-			nav: !this.state.nav,
-			lnk: false
+			nav: false,
+			lnk: !this.state.lnk
 		})
 	}
 	lnkGroup() {
@@ -64,12 +70,6 @@ class Dash extends Component {
 			</Fragment>
 		)
 	}
-	toggleLnk() {
-		this.setState({
-			nav: false,
-			lnk: !this.state.lnk
-		})
-	}
 	render() {
 		return(
 			<Fragment>
@@ -77,13 +77,15 @@ class Dash extends Component {
 					<img src={"./assets/logo.svg"} alt="logo" className="logo" />
 
 					<section className="topDash">
-						<div className="topHeading" onClick={() => this.toggleNav()}>
-							Navigation
-						</div>
+						<section className="topBar">
+							<div className="topHeading" onClick={() => this.toggleNav()}>
+								Navigation
+							</div>
 
-						<div className="topHeading" onClick={() => this.toggleLnk()}>
-							Links
-						</div>
+							<div className="topHeading" onClick={() => this.toggleLnk()}>
+								Links
+							</div>
+						</section>
 
 						{this.state.nav ? this.navGroup() : null}
 						{this.state.lnk ? this.lnkGroup() : null}
