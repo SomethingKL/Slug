@@ -36,15 +36,20 @@
 	.sideDash {
 		display: block;
 
-		.sideHeading {
-			@each $key, $value in $heading {
-				#{$key}: $value;
-			};
+		.sideGroup {
+			margin: 0 0 3rem;
+			
+			.sideHeading {
+				@each $key, $value in $heading {
+					#{$key}: $value;
+				};
+			}
 		}
 	}
 
 	.topDash {
 		display: none;
+
 		.topBar {
 			overflow: auto;
 			

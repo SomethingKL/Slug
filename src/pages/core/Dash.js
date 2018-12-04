@@ -92,15 +92,21 @@ class Dash extends Component {
 					</section>
 
 					<section className="sideDash">
-						<div className="sideHeading">
-							Navigation
-						</div>
-						{this.navGroup()}
+						<section className="sideGroup">
+							<div className="sideHeading">
+								Navigation
+							</div>
+							
+							{this.navGroup()}
+						</section>
 
-						<div className="sideHeading">
-							Links
-						</div>
-						{this.lnkGroup()}
+						<section className="sideGroup">
+							<div className="sideHeading">
+								Links
+							</div>
+							
+							{this.lnkGroup()}
+						</section>
 					</section>
 				</aside>
 				
